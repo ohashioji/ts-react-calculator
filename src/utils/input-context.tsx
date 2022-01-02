@@ -11,7 +11,7 @@ type InputContextType = {
 
 export const InputInitial = {
 	state: {
-		content: "1",
+		content: "",
 	},
 	dispatch: () => null,
 };

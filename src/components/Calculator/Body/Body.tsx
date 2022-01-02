@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useReducer } from "react";
 import Logo from "../Logo/Logo";
 import Input from "../Input/Input";
 import "./Body.scss";
@@ -13,12 +13,14 @@ interface Props {
 
 export default function Body({ children }: Props) {
 	const { state: inputState } = InputInitial;
-	// @ts-ignore
+
 	const [state, dispatch] = useReducer(inputReducer, inputState);
+
 	const buttonCount: (string | number)[] = [...Array(10).keys()].map(
 		(num) => num + 1
 	);
 	buttonCount.push("enter");
+	buttonCount.push("clear");
 
 	return (
 		<main className="body">

@@ -6,6 +6,7 @@ export default function Input() {
 	console.log(state)
 	return (
 		<div className="input">
+			
 			<h1 className="input__text">{state.content}</h1>
 		</div>
 	);

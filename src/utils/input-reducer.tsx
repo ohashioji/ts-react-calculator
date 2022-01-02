@@ -1,11 +1,11 @@
-export default function inputReducer(state: { content: string }, action: any) {
+type ActionType = "update" | "clear";
+
+export default function inputReducer(state: any, action: any) {
 	switch (action.type) {
 		case "update":
-			state.content = action.payload.content;
-			break;
+			return { content: state.content + String(action.payload) };
 		case "clear":
-			state.content = "";
-			break;
+			return { content: "" };
 		default:
 			return state;
 	}
