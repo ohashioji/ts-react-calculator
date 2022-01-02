@@ -1,5 +1,4 @@
-import { InputType } from "../utils/input-context";
-type ActionType = { type: "update"; payload: string } | { type: "clear" };
+import { ActionType, InputType } from "./types";
 
 export default function inputReducer(state: InputType, action: ActionType) {
 	switch (action.type) {

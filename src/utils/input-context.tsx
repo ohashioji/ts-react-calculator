@@ -1,13 +1,5 @@
 import React from "react";
-
-export type InputType = {
-	content: string;
-};
-
-type InputContextType = {
-	state: InputType;
-	dispatch: React.Dispatch<any>;
-};
+import { InputContextType } from "./types";
 
 export const InputInitial = {
 	state: {
