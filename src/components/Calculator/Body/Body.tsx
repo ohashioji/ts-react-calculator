@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from "../../Logo/Logo";
+import Logo from "../Logo/Logo";
 import Input from "../Input/Input";
 import "./Body.scss";
+import NumberPad from "../NumberPad/NumberPad";
 
 interface Props {
 	children: React.ReactNode;
@@ -9,9 +10,12 @@ interface Props {
 
 export default function Body({ children }: Props) {
 	return (
-		<div className="body">
+		<main className="body">
 			<Logo />
 			<Input />
-		</div>
+			<NumberPad>
+				<h1></h1>
+			</NumberPad>
+		</main>
 	);
 }
