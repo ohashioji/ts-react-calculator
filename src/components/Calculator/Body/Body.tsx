@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../../Logo/Logo";
 import "./Body.scss";
 
 interface Props {
@@ -6,5 +7,9 @@ interface Props {
 }
 
 export default function Body({ children }: Props) {
-	return <div className="body">{children}</div>;
+	return (
+		<div className="body">
+			<Logo />
+		</div>
+	);
 }
