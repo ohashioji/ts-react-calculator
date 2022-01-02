@@ -1,18 +1,26 @@
 import { useContext } from "react";
 import InputContext from "../../../utils/input-context";
 import "./Key.scss";
-interface Props {
-	label: string | number;
+interface Props<T extends string | number> {
+	label: T;
 }
 
-export default function Key({ label }: Props) {
+export default function Key<T extends string | number>({ label }: Props<T>) {
 	const { dispatch } = useContext(InputContext);
 
 	function handleClick() {
-		dispatch({
-			type: "update",
-			payload: label,
-		});
+		switch (label) {
+			case "clear":
+				dispatch({
+					type: "clear",
+				});
+				break;
+			default:
+				dispatch({
+					type: "update",
+					payload: String(label),
+				});
+		}
 	}
 
 	return (

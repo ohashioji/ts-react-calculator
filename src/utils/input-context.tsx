@@ -1,6 +1,6 @@
 import React from "react";
 
-type InputType = {
+export type InputType = {
 	content: string;
 };
 
