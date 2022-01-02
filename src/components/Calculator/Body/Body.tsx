@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../Logo/Logo";
+import Input from "../Input/Input";
 import "./Body.scss";
 
 interface Props {
@@ -10,6 +11,7 @@ export default function Body({ children }: Props) {
 	return (
 		<div className="body">
 			<Logo />
+			<Input />
 		</div>
 	);
 }
