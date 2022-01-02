@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useContext, useReducer } from "react";
 import Logo from "../Logo/Logo";
 import Input from "../Input/Input";
 import "./Body.scss";
 import NumberPad from "../NumberPad/NumberPad";
 import Key from "../Key/Key";
+import InputContext, { InputInitial } from "../../../utils/input-context";
+import inputReducer from "../../../utils/input-reducer";
 
 interface Props {
 	children: React.ReactNode;
 }
 
 export default function Body({ children }: Props) {
-	const buttonCount: (string|number)[] = [...Array(10).keys()].map((num) => num + 1);
-    buttonCount.push("enter")
+	const { state: inputState } = InputInitial;
+	// @ts-ignore
+	const [state, dispatch] = useReducer(inputReducer, inputState);
+	const buttonCount: (string | number)[] = [...Array(10).keys()].map(
+		(num) => num + 1
+	);
+	buttonCount.push("enter");
+
 	return (
 		<main className="body">
 			<Logo />
-			<Input />
-			<NumberPad>
-				{buttonCount.map((buttonKey) => (
-					<Key label={buttonKey} />
-				))}
-			</NumberPad>
+			<InputContext.Provider value={{ state, dispatch }}>
+				<Input />
+
+				<NumberPad>
+					{buttonCount.map((buttonKey) => (
+						<Key label={buttonKey} />
+					))}
+				</NumberPad>
+			</InputContext.Provider>
 		</main>
 	);
 }
