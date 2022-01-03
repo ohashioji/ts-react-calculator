@@ -56,6 +56,10 @@
         "type": "OPERATOR"
     },
     {
+        "label": "C",
+        "type": "CLEAR"
+    },
+    {
         "label": "=",
         "type": "SUBMIT"
     }

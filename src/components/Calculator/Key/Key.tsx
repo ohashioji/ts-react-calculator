@@ -3,7 +3,7 @@ import InputContext from "../../../utils/input-context";
 import "./Key.scss";
 interface Props {
 	label: string;
-	type: "INPUT" | "SUBMIT" | "OPERATOR";
+	type: "INPUT" | "SUBMIT" | "OPERATOR" | "CLEAR";
 }
 
 export default function Key({ label, type }: Props) {
@@ -26,6 +26,7 @@ export default function Key({ label, type }: Props) {
 				break;
 
 			case "SUBMIT":
+			case "CLEAR":
 				dispatch({
 					type: type,
 				});

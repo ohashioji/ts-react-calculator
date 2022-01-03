@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import { ActionType, InputType } from "./types";
 
 export default function inputReducer(
@@ -7,10 +6,18 @@ export default function inputReducer(
 ): InputType {
 	switch (action.type) {
 		case "INPUT":
-			return {
-				content: state.content + action.payload,
-				prevAction: { type: action.type, payload: action.payload },
-			};
+			if (state.prevAction.type === "SUBMIT") {
+				return {
+					content: action.payload,
+					prevAction: { type: action.type, payload: action.payload },
+				};
+			} else {
+				return {
+					content: state.content + action.payload,
+					prevAction: { type: action.type, payload: action.payload },
+				};
+			}
+
 		//Operators should not be repeated -> we dont want ++++. or +x/ to be a legal sequence of characters
 		case "OPERATOR":
 			if (state.prevAction.type === "OPERATOR") {
@@ -42,7 +49,6 @@ function splitSequence(sequence: string): string[] {
 
 function calculate(sequence: string[]): string {
 	const temp: (string | number)[] = [];
-	console.log(sequence);
 	sequence.forEach((item) => {
 		switch (item) {
 			case "x":

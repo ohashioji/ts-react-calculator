@@ -1,4 +1,9 @@
 .key {
 	background-color: darkgray;
-
+	-webkit-box-shadow: 0px 0px 15px 0px #000000;
+	box-shadow: 0px 0px 15px 0px #000000;
+	font-size: 2rem;
+	&:active {
+		box-shadow: none;
+	}
 }
