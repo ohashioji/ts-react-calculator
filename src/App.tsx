@@ -3,9 +3,7 @@ import PageWrapper from "./components/Global/PageWrapper/PageWrapper";
 function App() {
 	return (
 		<PageWrapper>
-			<Body>
-				<h1>hi</h1>
-			</Body>
+			<Body />
 		</PageWrapper>
 	);
 }

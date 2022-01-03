@@ -1,0 +1,62 @@
+[
+    {
+        "label": "1",
+        "type": "INPUT"
+    },
+    {
+        "label": "2",
+        "type": "INPUT"
+    },
+    {
+        "label": "3",
+        "type": "INPUT"
+    },
+    {
+        "label": "4",
+        "type": "INPUT"
+    },
+    {
+        "label": "5",
+        "type": "INPUT"
+    },
+    {
+        "label": "6",
+        "type": "INPUT"
+    },
+    {
+        "label": "7",
+        "type": "INPUT"
+    },
+    {
+        "label": "8",
+        "type": "INPUT"
+    },
+    {
+        "label": "9",
+        "type": "INPUT"
+    },
+    {
+        "label": "0",
+        "type": "INPUT"
+    },
+    {
+        "label": "+",
+        "type": "OPERATOR"
+    },
+    {
+        "label": "-",
+        "type": "OPERATOR"
+    },
+    {
+        "label": "/",
+        "type": "OPERATOR"
+    },
+    {
+        "label": "x",
+        "type": "OPERATOR"
+    },
+    {
+        "label": "=",
+        "type": "SUBMIT"
+    }
+]

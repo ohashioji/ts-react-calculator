@@ -1,9 +1,10 @@
 import React from "react";
 import { InputContextType } from "./types";
 
-export const InputInitial = {
+export const InputInitial: InputContextType = {
 	state: {
 		content: "",
+		prevAction: { type: "INITIAL" },
 	},
 	dispatch: () => null,
 };

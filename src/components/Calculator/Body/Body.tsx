@@ -6,22 +6,19 @@ import NumberPad from "../NumberPad/NumberPad";
 import Key from "../Key/Key";
 import InputContext, { InputInitial } from "../../../utils/input-context";
 import inputReducer from "../../../utils/input-reducer";
+import keyJson from "../../../mapping/button-mapping.json";
 
-interface Props {
-	children: React.ReactNode;
-}
+type KeyType = {
+	label: string;
+	type: "INPUT" | "SUBMIT";
+};
 
-export default function Body({ children }: Props) {
+export default function Body() {
 	const { state: inputState } = InputInitial;
 
 	const [state, dispatch] = useReducer(inputReducer, inputState);
 
-	const buttonCount: (string | number)[] = [...Array(10).keys()].map(
-		(num) => num + 1
-	);
-	buttonCount.push("enter");
-	buttonCount.push("clear");
-
+	const buttonMappings = keyJson as KeyType[];
 	return (
 		<main className="body">
 			<Logo />
@@ -29,8 +26,8 @@ export default function Body({ children }: Props) {
 				<Input />
 
 				<NumberPad>
-					{buttonCount.map((buttonKey) => (
-						<Key label={buttonKey} />
+					{buttonMappings.map((data) => (
+						<Key key={data.label} {...data} />
 					))}
 				</NumberPad>
 			</InputContext.Provider>
