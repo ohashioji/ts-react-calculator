@@ -1,3 +1,4 @@
+import { stringify } from "querystring";
 import { ActionType, InputType } from "./types";
 
 export default function inputReducer(
@@ -22,13 +23,40 @@ export default function inputReducer(
 			}
 
 		case "SUBMIT":
-			const data = state.content.split("+");
-			console.log(data);
-			return { content: state.content, prevAction: { type: "INITIAL" } };
+			const split = splitSequence(state.content);
+			const output = calculate(split);
+			return { content: output, prevAction: { type: "SUBMIT" } };
 		case "CLEAR":
 			return { content: "", prevAction: { type: "INITIAL" } };
 
 		default:
 			return state;
 	}
+}
+
+function splitSequence(sequence: string): string[] {
+	const pattern: RegExp = /([+x/-])/g;
+	const data = sequence.split(pattern);
+	return data;
+}
+
+function calculate(sequence: string[]): string {
+	const temp: (string | number)[] = [];
+	console.log(sequence);
+	sequence.forEach((item) => {
+		switch (item) {
+			case "x":
+				temp.push("*");
+				break;
+			case "/":
+			case "+":
+			case "-":
+				temp.push(item);
+				break;
+			default:
+				temp.push(parseInt(item));
+		}
+	});
+
+	return eval(temp.join(""));
 }
