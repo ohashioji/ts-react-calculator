@@ -20,6 +20,9 @@ export default function inputReducer(
 
 		//Operators should not be repeated -> we dont want ++++. or +x/ to be a legal sequence of characters
 		case "OPERATOR":
+			if (state.prevAction.type === "INITIAL") {
+				return state;
+			}
 			if (state.prevAction.type === "OPERATOR") {
 				return state;
 			} else {

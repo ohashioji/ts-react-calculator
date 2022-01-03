@@ -12,12 +12,6 @@ export default function Key({ label, type }: Props) {
 	function handleClick() {
 		switch (type) {
 			case "INPUT":
-				dispatch({
-					type: type,
-					payload: label,
-				});
-				break;
-
 			case "OPERATOR":
 				dispatch({
 					type: type,

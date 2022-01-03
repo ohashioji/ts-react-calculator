@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 import Logo from "../Logo/Logo";
 import Input from "../Input/Input";
 import "./Body.scss";
@@ -24,7 +24,6 @@ export default function Body() {
 			<Logo />
 			<InputContext.Provider value={{ state, dispatch }}>
 				<Input />
-
 				<NumberPad>
 					{buttonMappings.map((data) => (
 						<Key key={data.label} {...data} />
